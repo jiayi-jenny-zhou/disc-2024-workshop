@@ -3,6 +3,7 @@ import './App.css';
 import Profile from './profile';
 import NavBar from './navBar';
 import React, { use } from 'react';
+import { useEffect } from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import CheckIcon from '@mui/icons-material/Check';
 
