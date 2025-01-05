@@ -1,11 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
 
 const NavBar = () => {
   return (
-    <div class="navbar">
-    <div class="site-name">The Pond</div>
-    <ul class="nav-links">
-        <li><a href="/home">Home</a></li>
+    <div className="navbar">
+    <div className="site-name">The Pond</div>
+    <ul className="nav-links">
+        <li><a href="/">Home</a></li>
         <li><a href="/saved-profiles">Saved Profiles</a></li>
         <li><a href="/create-profiles">Create Profiles</a></li>
     </ul>

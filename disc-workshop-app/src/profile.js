@@ -1,14 +1,30 @@
 import React from 'react';
 
-const Profile = () => {
+const Profile = ({name, email, bio, id_value}) => {
   return (
-    <div class="grid-item">
-              <div class="profile-image">Cute Duck Here!</div>
-              <div class="profile-details">
-                  <p class="profile-name">Duck 1</p>
-                  <p class="profile-notes">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et sollicitudin metus. Sed ultricies eget neque vitae vestibulum.</p>
-                  <p class="profile-contact">Contact: duck1@example.com</p>
-                  <button class="save-button">Save</button>
+    <div className="grid-item">
+              <div className="profile-image">
+                  <img src="https://th.bing.com/th/id/OIP.Y2wL4wkXkMJMB59J3PFVcwAAAA?rs=1&pid=ImgDetMain" alt="profile" width="100" 
+  height="100" />
+              </div>
+              <div className="profile-details">
+                  <p className="profile-name">{name}</p>
+                  <p className="profile-notes">{bio}</p>
+                  <p className="profile-contact">Contact: {email}</p>
+                  <button className="save-button" onClick = {() => {
+                      fetch('http://localhost:3005/save', {
+                          method: 'POST',
+                          headers: {
+                              'Content-Type': 'application/json'
+                          },
+                          body: JSON.stringify({name: name, email: email, bio: bio, user_id: id_value})
+                      })
+                      .then((response) => response.json())
+                      .then((data) => {
+                          console.log(data);
+                      });
+                  }
+                  }>Save</button>
               </div>
           </div>
   );
